@@ -12,7 +12,12 @@ const messages2 = ['hehehehe stop!', 'omg staaaahp', 'hehehehehe', 'hahaha stooo
 const messages3 = ['stop!!!', 'hah-stop-hahaha-please stop', 'hahaha stop it!!', 'stop!!']
 console.log("tickles: "+tickles)
 
-function ticklepage(){ 
+let lastused = Date.now();
+
+function ticklepage(){
+  console.log("page tickled")
+  let now = Date.now();
+  if(now > lastused + 1000) {
   ++tickles
   if (tickles <= 5){
     playsound('hehe');
@@ -26,7 +31,12 @@ function ticklepage(){
   } else {
     changetext('STOP IT!!!')
     alert('I told you to stop! It\'s not funny anymore!!')
-    
   }
+  lastused = now
+  }
+  else {
+    null;
+  }
+  
 }
   
